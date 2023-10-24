@@ -84,7 +84,7 @@ class BytesModule:
                               vocabulary_inv_path=self._vocab_path)
 
         preds = [pred[0] for pred in self._model.predict(X)]
-        lbl_preds = np.array([1 if pred > 0.5 else 0 for pred in preds]) #? only 1 or 0 (boolean result)
+        lbl_preds = np.array([1 if pred > 0.99 else 0 for pred in preds]) #? only 1 or 0 (boolean result)
 
         print('[+][BytesModule][from_files] lbl_preds, preds', lbl_preds, preds)
 

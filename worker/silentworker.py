@@ -104,4 +104,7 @@ class SilentWorker(SilentWorkerBase):
         #! Do something
         log('[ ][SilentWorker][infer] I\'m pretty')
 
-        self.bytes_module.from_files(self._map_ohash_inputs, self.__onFinishInfer__)
+        try:
+            self.bytes_module.from_files(self._map_ohash_inputs, self.__onFinishInfer__)
+        except Exception as e:
+            log(f'[!][SilentWorker][infer] Failed with exception: {e}')
